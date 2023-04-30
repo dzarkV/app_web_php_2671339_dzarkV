@@ -8,15 +8,21 @@
                 require_once "views/business/login.view.php";
                 require_once "views/roles/business/footer.view.php";
             }
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                require_once "views/roles/business/header.view.php";                
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
+                // Capturar los datos a través de un objeto
                 $userDto = new UserDto(
                     $_POST['user'], 
                     $_POST['pass']
-                );                
-                echo "<br>Usuario: " . $userDto->getIdUser();
-                echo "<br>Contraseña: " . $userDto->getPassUser();
-                require_once "views/roles/business/footer.view.php";
+                );
+                // Validar la entrada por contraseña
+                if ($userDto->getIdUser() == "admin-123" && $userDto->getPassUser() == "12345") {                    
+                    header('Location: ?c=Dashboard');
+                } else {
+                    require_once "views/roles/business/header.view.php";
+                    require_once "views/business/login.view.php";
+                    echo "Usuario Incorrecto";
+                    require_once "views/roles/business/footer.view.php";
+                }                
             }
         }
     }    
