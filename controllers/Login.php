@@ -13,8 +13,9 @@
                     $_POST['user'],
                     $_POST['pass']
                 );
-                if ($userObj->getUserEmail() == "admin@correo.com" && $userObj->getUserPass() == "12345") {
-                    header("Location:?c=Dashboard");
+                $userObj = $userObj->login();                
+                if ($userObj) {                    
+                    header("Location:?c=Dashboard");                
                 } else {
                     require_once "views/company/header.view.php";
                     require_once "views/company/login.view.php";
