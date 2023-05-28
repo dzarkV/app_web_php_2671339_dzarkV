@@ -13,19 +13,15 @@
                 $pass = $_POST['pass'];
                 $userObj = new User;
                 $userObj->setUserEmail($user);
-                $userObj->setUserPass($pass);                
-                echo "Email Usuario: " . $userObj->getUserEmail() . "<br>";
-                echo " Pass Usuario: " . $userObj->getUserPass();
-
-                
-                // if ($user == "admin@correo.com" && $pass = "12345") {
-                //     header("Location:?c=Dashboard");
-                // } else {
-                //     require_once "views/company/header.view.php";
-                //     require_once "views/company/login.view.php";
-                //     echo "El Usuario no está registrado";
-                //     require_once "views/company/footer.view.php";
-                // }
+                $userObj->setUserPass($pass);
+                if ($userObj->getUserEmail() == "admin@correo.com" && $userObj->getUserPass() == "12345") {
+                    header("Location:?c=Dashboard");
+                } else {
+                    require_once "views/company/header.view.php";
+                    require_once "views/company/login.view.php";
+                    echo "El Usuario no está registrado";
+                    require_once "views/company/footer.view.php";
+                }
                 
             }
         }
