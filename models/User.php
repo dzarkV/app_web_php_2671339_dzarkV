@@ -11,31 +11,31 @@
             $this->userCode = $userCode;
         }
         public function getUserCode(){
-            return $this->getUserCode;
+            return $this->userCode;
         }
         # Nombre Usuario
-        public function setUserName($UserName){
-            $this->UserName = $UserName;
+        public function setUserName($userName){
+            $this->userName = $userName;
         }
         public function getUserName(){
-            return $this->getUserName;
+            return $this->userName;
         }
         # Email Usuario
-        public function setUserEmail($UserEmail){
-            $this->UserEmail = $UserEmail;
+        public function setUserEmail($userEmail){
+            $this->userEmail = $userEmail;
         }
         public function getUserEmail(){
-            return $this->getUserEmail;
+            return $this->userEmail;
         }
         # PassWord Usuario
-        public function setUserPass($UserPass){
-            $this->UserPass = $UserPass;
+        public function setUserPass($userPass){
+            $this->userPass = $userPass;
         }
         public function getUserPass(){
-            return $this->getUserPass;
+            return $this->userPass;
         }
 
         // 2da Parte: Modelo Negocio (Acceso a Datos -> DB)
-        
+
     }
 ?>
