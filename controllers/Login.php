@@ -8,12 +8,10 @@
                 require_once "views/company/login.view.php";
                 require_once "views/company/footer.view.php";
             }
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $userObj = new User(
-                    $user,
-                    $pass
+                    $_POST['user'],
+                    $_POST['pass']
                 );
                 if ($userObj->getUserEmail() == "admin@correo.com" && $userObj->getUserPass() == "12345") {
                     header("Location:?c=Dashboard");
