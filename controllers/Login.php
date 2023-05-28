@@ -11,9 +11,10 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
-                $userObj = new User;
-                $userObj->setUserEmail($user);
-                $userObj->setUserPass($pass);
+                $userObj = new User(
+                    $user,
+                    $pass
+                );
                 if ($userObj->getUserEmail() == "admin@correo.com" && $userObj->getUserPass() == "12345") {
                     header("Location:?c=Dashboard");
                 } else {
