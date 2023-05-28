@@ -19,3 +19,9 @@
             </div> 
         </nav>
         <main>
+            <aside class="borde">
+                <h1>USUARIOS</h1>
+                <a href="?c=Users&a=createUser">Crear Usuario</a>
+                <a href="">Consultar Usuarios</a>
+            </aside>
+            <section class="borde">
