@@ -10,8 +10,15 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
-                echo "Usuario: " . $user . "<br>";
-                echo "Contraseña: " . $pass . "<br>";
+                if ($user == "admin@correo.com" && $pass = "12345") {
+                    header("Location:?c=Dashboard");
+                } else {
+                    require_once "views/company/header.view.php";
+                    require_once "views/company/login.view.php";
+                    echo "El Usuario no está registrado";
+                    require_once "views/company/footer.view.php";
+                }
+                
             }
         }
     }    
