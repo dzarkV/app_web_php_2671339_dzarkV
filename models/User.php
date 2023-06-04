@@ -142,8 +142,25 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-        }
+        }        
         # CU04 - Actualizar Rol
+        # CU04_1 - Obtener el código del rol
+        # CU06 - Obtener el código del Rol
+        public function getRolByCode($rolCode){
+            try {
+                $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+                $rolDb = $stmt->fetch();
+                $rol = new User;
+                $rol->setRolCode($rolDb['rol_code']);
+                $rol->setRolName($rolDb['rol_name']);
+                return $rol;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
         # CU05 - Eliminar Rol
         # CU06 - Crear Usuario
         # CU07 - Consultar Usuarios

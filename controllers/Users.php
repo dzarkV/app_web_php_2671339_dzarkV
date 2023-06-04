@@ -27,6 +27,19 @@
             require_once "views/modules/1_users/read_rol.view.php";
             require_once "views/roles/admin/footer.view.php";
         }
+        # Función del Controlador para Actualizar Rol
+        public function updateRol(){
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $rol = new User;
+                $rol = $rol->getRolByCode($_GET['rolCode']);
+                require_once "views/roles/admin/header.view.php";
+                require_once "views/modules/1_users/update_rol.view.php";
+                require_once "views/roles/admin/footer.view.php";
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            }
+        }
         # Función del Controlador para Crear Usuario
         // public function createUser(){
         //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {

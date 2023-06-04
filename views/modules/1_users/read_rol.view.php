@@ -12,7 +12,7 @@
                 <td><?php echo $rol->getRolCode(); ?></td>
                 <td><?php echo $rol->getRolName(); ?></td>
                 <td>
-                    <a href="">Editar</a>
+                    <a href="?c=Users&a=updateRol&rolCode=<?php echo $rol->getRolCode()?>">Editar</a>
                     <a href="">Eliminar</a>
                 </td>
             </tr>
