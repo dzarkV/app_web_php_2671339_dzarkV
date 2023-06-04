@@ -22,7 +22,7 @@
             <aside class="borde">
                 <h1>USUARIOS</h1>
                 <a href="?c=Users&a=createRol">Crear Rol</a>
-                <a href="">Consultar Roles</a>
+                <a href="?c=Users&a=readRol">Consultar Roles</a>
                 <a href="">Crear Usuario</a>
                 <a href="">Consultar Usuarios</a>
             </aside>

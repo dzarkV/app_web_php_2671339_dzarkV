@@ -22,6 +22,10 @@
             $this->userEmail = $userEmail;
             $this->userPass = $userPass;
         }
+        public function __construct2($rolCode,$rolName){
+            $this->rolCode = $rolCode;
+            $this->rolName = $rolName;
+        }
         public function __construct7($rolCode,$userCode,$userName,$userLastName,$userEmail,$userPass,$userStatus){
             $this->rolCode = $rolCode;
             $this->userCode = $userCode;
@@ -127,6 +131,22 @@
             }
         }
         # CU03 - Consultar Roles
+        public function readRol(){
+            try {
+                $rolList = [];
+                $sql = 'SELECT * FROM ROLES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $rol) {
+                    $rolList[] = new User(
+                        $rol['rol_code'],
+                        $rol['rol_name']
+                    );
+                }
+                return $rolList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
         # CU04 - Actualizar Rol
         # CU05 - Eliminar Rol
         # CU06 - Crear Usuario

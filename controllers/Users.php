@@ -19,6 +19,15 @@
                 header("Location:?c=Dashboard");
             }
         }
+        # Controlador para Consultar Roles
+        public function readRol(){
+            $roles = new User;
+            $roles = $roles->readRol();
+            require_once "views/roles/admin/header.view.php";
+            print_r($roles);
+            require_once "views/modules/1_users/read_rol.view.php";
+            require_once "views/roles/admin/footer.view.php";
+        }
         # Controlador para Crear Usuario
         // public function createUser(){
         //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
