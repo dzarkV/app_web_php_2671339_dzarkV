@@ -27,7 +27,7 @@
             require_once "views/modules/1_users/read_rol.view.php";
             require_once "views/roles/admin/footer.view.php";
         }
-        # Controlador para Crear Usuario
+        # Función del Controlador para Crear Usuario
         // public function createUser(){
         //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 // require_once "views/roles/admin/header.view.php";
