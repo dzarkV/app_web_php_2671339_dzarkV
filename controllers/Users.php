@@ -1,4 +1,5 @@
 <?php
+    require_once "models/User.php";
     class Users{
         public function __construct(){}
         public function main(){
@@ -12,7 +13,10 @@
                 require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
+                $rolObj = new User;
+                $rolObj->setRolName($_POST['rolName']);
+                $rolObj->createRol();                
+                header("Location:?c=Dashboard");
             }
         }
         # Controlador para Crear Usuario

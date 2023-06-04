@@ -5,7 +5,7 @@
     <div class="form-body">
         <div class="form-control">
             <label for="">Nombre</label>
-            <input type="text" placeholder="Nombre Rol">
+            <input type="text" name="rolName" placeholder="Nombre Rol">
         </div>
     </div>
     <div class="form-footer">

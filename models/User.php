@@ -2,7 +2,8 @@
     class User{
         // 1ra Parte: Modelo de acuerdo a la POO
         private $dbh;
-        private $rolCode;
+        private $rolCode = null;
+        private $rolName;
         private $userCode;
         private $userName;
         private $userLastName;
@@ -36,6 +37,13 @@
         }
         public function getRolCode(){
             return $this->rolCode;
+        }
+        # Nombre Rol
+        public function setRolName($rolName){
+            $this->rolName = $rolName;
+        }
+        public function getRolName(){
+            return $this->rolName;
         }
         # Código Usuario
         public function setUserCode($userCode){
@@ -106,8 +114,18 @@
                 return false;
             }
         }
-        # CU02 - Crear Rol
-        
+        # CU02 - Crear Rol        
+        public function createRol(){
+            try {                
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';                
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());                
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
         # CU03 - Consultar Roles
         # CU04 - Actualizar Rol
         # CU05 - Eliminar Rol
