@@ -5,7 +5,7 @@
         public function main(){
             header("Location:?c=Dashboard");
         }
-        # Controlador para Crear Rol
+        # Función del Controlador para Crear Rol
         public function createRol(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once "views/roles/admin/header.view.php";
@@ -19,7 +19,7 @@
                 header("Location:?c=Users&a=readRol");
             }
         }
-        # Controlador para Consultar Roles
+        # Función del Controlador para Consultar Roles
         public function readRol(){
             $roles = new User;
             $roles = $roles->readRol();
