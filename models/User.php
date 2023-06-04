@@ -106,5 +106,15 @@
                 return false;
             }
         }
+        # CU02 - Crear Rol
+        
+        # CU03 - Consultar Roles
+        # CU04 - Actualizar Rol
+        # CU05 - Eliminar Rol
+        # CU06 - Crear Usuario
+        # CU07 - Consultar Usuarios
+        # CU08 - Actualizar usuario
+        # CU09 - Eliminar usuario
+        # CU10 - Cerrar Sesión
     }
 ?>
