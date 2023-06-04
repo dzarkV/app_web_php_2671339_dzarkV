@@ -21,8 +21,7 @@
                     require_once "views/company/login.view.php";
                     echo "El Usuario no está registrado";
                     require_once "views/company/footer.view.php";
-                }
-                
+                }                
             }
         }
     }    
