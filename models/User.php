@@ -21,11 +21,7 @@
         public function __construct2($userEmail,$userPass){
             $this->userEmail = $userEmail;
             $this->userPass = $userPass;
-        }
-        public function __construct2($rolCode,$rolName){
-            $this->rolCode = $rolCode;
-            $this->rolName = $rolName;
-        }
+        }        
         public function __construct7($rolCode,$userCode,$userName,$userLastName,$userEmail,$userPass,$userStatus){
             $this->rolCode = $rolCode;
             $this->userCode = $userCode;
@@ -136,11 +132,11 @@
                 $rolList = [];
                 $sql = 'SELECT * FROM ROLES';
                 $stmt = $this->dbh->query($sql);
-                foreach ($stmt->fetchAll() as $rol) {
-                    $rolList[] = new User(
-                        $rol['rol_code'],
-                        $rol['rol_name']
-                    );
+                foreach ($stmt->fetchAll() as $rol) {                    
+                    $rolObj = new User;
+                    $rolObj->setRolCode($rol['rol_code']);
+                    $rolObj->setRolName($rol['rol_name']);
+                    array_push($rolList, $rolObj);
                 }
                 return $rolList;
             } catch (Exception $e) {

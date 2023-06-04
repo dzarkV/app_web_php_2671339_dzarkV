@@ -7,13 +7,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>admin</td>
-            <td>
-                <a href="">Editar</a>
-                <a href="">Eliminar</a>
-            </td>
-        </tr>              
+        <?php foreach ($roles as $rol) : ?>
+            <tr>
+                <td><?php echo $rol->getRolCode(); ?></td>
+                <td><?php echo $rol->getRolName(); ?></td>
+                <td>
+                    <a href="">Editar</a>
+                    <a href="">Eliminar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>

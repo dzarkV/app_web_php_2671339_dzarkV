@@ -16,15 +16,14 @@
                 $rolObj = new User;
                 $rolObj->setRolName($_POST['rolName']);
                 $rolObj->createRol();                
-                header("Location:?c=Dashboard");
+                header("Location:?c=Users&a=readRol");
             }
         }
         # Controlador para Consultar Roles
         public function readRol(){
             $roles = new User;
             $roles = $roles->readRol();
-            require_once "views/roles/admin/header.view.php";
-            print_r($roles);
+            require_once "views/roles/admin/header.view.php";            
             require_once "views/modules/1_users/read_rol.view.php";
             require_once "views/roles/admin/footer.view.php";
         }
