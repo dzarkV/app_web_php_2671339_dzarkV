@@ -1,4 +1,4 @@
-DROP DATABASE DBEJEMPLOUSER;
+	DROP DATABASE DBEJEMPLOUSER;
 -- -----------------------------------------------------
 -- ESTRUCTURA DBEJEMPLOUSER
 -- -----------------------------------------------------
@@ -24,6 +24,8 @@ CREATE TABLE USERS (
   user_name VARCHAR(50) NOT NULL,
   user_lastname VARCHAR(50) NOT NULL,
   user_email VARCHAR(100) NOT NULL,
+  user_pass VARCHAR(150) NOT NULL,
+  user_status TINYINT NOT NULL,
   PRIMARY KEY (user_code),
   INDEX ind_user_rol (rol_code ASC),
   CONSTRAINT fk_user_rol
