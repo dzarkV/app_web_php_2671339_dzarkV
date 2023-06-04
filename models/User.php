@@ -2,10 +2,13 @@
     class User{
         // 1ra Parte: Modelo de acuerdo a la POO
         private $dbh;
+        private $rolCode;
         private $userCode;
         private $userName;
+        private $userLastName;
         private $userEmail;
         private $userPass;        
+        private $userStatus;        
         public function __construct(){
             $this->dbh = DataBase::connection();
             $a = func_get_args();
@@ -18,11 +21,21 @@
             $this->userEmail = $userEmail;
             $this->userPass = $userPass;
         }
-        public function __construct4($userCode,$userName,$userEmail,$userPass){
+        public function __construct7($rolCode,$userCode,$userName,$userLastName,$userEmail,$userPass,$userStatus){
+            $this->rolCode = $rolCode;
             $this->userCode = $userCode;
             $this->userName = $userName;
+            $this->userLastName = $userLastName;
             $this->userEmail = $userEmail;
             $this->userPass = $userPass;
+            $this->userStatus = $userStatus;
+        }
+        # Código Rol
+        public function setRolCode($rolCode){
+            $this->rolCode = $rolCode;
+        }
+        public function getRolCode(){
+            return $this->rolCode;
         }
         # Código Usuario
         public function setUserCode($userCode){
@@ -38,6 +51,13 @@
         public function getUserName(){
             return $this->userName;
         }
+        # Apellido Usuario
+        public function setUserLastName($userLastName){
+            $this->userLastName = $userLastName;
+        }
+        public function getUserLastName(){
+            return $this->userLastName;
+        }
         # Email Usuario
         public function setUserEmail($userEmail){
             $this->userEmail = $userEmail;
@@ -52,12 +72,19 @@
         public function getUserPass(){
             return $this->userPass;
         }
+        # Estado Usuario
+        public function setUserStatus($userStatus){
+            $this->userStatus = $userStatus;
+        }
+        public function getUserStatus(){
+            return $this->userStatus;
+        }
 
         // 2da Parte: Modelo Negocio (Acceso a Datos -> DB)
         
         # CU01 - Iniciar Sesión
         public function login(){
-            $sql = 'SELECT * FROM USER                    
+            $sql = 'SELECT * FROM USERS                    
                     WHERE user_email = :userEmail AND user_pass = :userPass';
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindValue('userEmail', $this->getUserEmail());
@@ -66,10 +93,13 @@
             $userDb = $stmt->fetch();
             if ($userDb) {
                 $user = new User(                    
+                    $userDb['rol_code'],
                     $userDb['user_code'],
                     $userDb['user_name'],
+                    $userDb['user_lastname'],
                     $userDb['user_email'],
-                    $userDb['user_pass']
+                    $userDb['user_pass'],
+                    $userDb['user_status']
                 );
                 return $user;
             } else {
