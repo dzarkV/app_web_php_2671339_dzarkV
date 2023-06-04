@@ -1,4 +1,5 @@
-INSERT INTO USER VALUES 
-(null, 'pepito perez', "pepito@perez.com", sha1("12345")),
-(null, 'Marinita García', 'marinita@gmail.com', sha1("12345")),
-(null, 'Jorge Campos', 'jorge@gmail.com', sha1("12345"))
+INSERT INTO ROLES VALUES 
+(null, "admin");
+
+INSERT INTO USERS VALUES 
+(1, 'admin-001', 'pepito', 'perez', "pepito@perez.com", sha1("12345"), 1);
