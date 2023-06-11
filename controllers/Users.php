@@ -44,6 +44,12 @@
                 header('Location:?c=Users&a=readRol');
             }
         }
+        # Función del Controlador para Eliminar Rol
+        public function deleteRol(){            
+            $rol = new User;
+            $rol->deleteRol($_GET['rolCode']);
+            header('Location:?c=Users&a=readRol');
+        }
         # Función del Controlador para Crear Usuario
         // public function createUser(){
         //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {

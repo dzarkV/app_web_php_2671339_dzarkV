@@ -151,7 +151,7 @@
                 die($e->getMessage());
             }
         }
-        # CU06 - Obtener el código del Rol
+        # CU04 - Obtener el código del Rol
         public function getRolByCode($rolCode){
             try {
                 $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
@@ -167,7 +167,7 @@
                 die($e->getMessage());
             }
         }
-        # CU07 - Actualizar Rol
+        # CU05 - Actualizar Rol
         public function updateRol(){
             try {                
                 $sql = 'UPDATE ROLES SET
@@ -182,7 +182,17 @@
                 die($e->getMessage());
             }
         }
-        # CU05 - Eliminar Rol
+        # CU06 - Eliminar Rol
+        public function deleteRol($rolCode){
+            try {
+                $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }            
+        }
         # CU06 - Crear Usuario
         # CU07 - Consultar Usuarios
         # CU08 - Actualizar usuario
