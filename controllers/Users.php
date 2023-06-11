@@ -22,7 +22,7 @@
         # Función del Controlador para Consultar Roles
         public function readRol(){
             $roles = new User;
-            $roles = $roles->readRol();
+            $roles = $roles->readRol();            
             require_once "views/roles/admin/header.view.php";            
             require_once "views/modules/1_users/read_rol.view.php";
             require_once "views/roles/admin/footer.view.php";
@@ -37,7 +37,11 @@
                 require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+                $rol = new User;
+                $rol->setRolCode($_POST['rolCode']);
+                $rol->setRolName($_POST['rolName']);
+                $rol->updateRol();
+                header('Location:?c=Users&a=readRol');
             }
         }
         # Función del Controlador para Crear Usuario

@@ -3,9 +3,8 @@
         <h1>Editar Rol</h1>
     </div>
     <div class="form-body">
-        <div class="form-control">
-            <label for="">Codigo Rol</label>
-            <input type="hidden" name="rolCode" placeholder="Nombre Rol" value="<?php echo $rol->getRolCode() ?>">
+        <div class="form-control">            
+            <input type="hidden" name="rolCode" value="<?php echo $rol->getRolCode() ?>">
         </div>
         <div class="form-control">
             <label for="">Nombre</label>

@@ -1,4 +1,4 @@
-	DROP DATABASE DBEJEMPLOUSER;
+# DROP DATABASE DBEJEMPLOUSER;
 -- -----------------------------------------------------
 -- ESTRUCTURA DBEJEMPLOUSER
 -- -----------------------------------------------------
