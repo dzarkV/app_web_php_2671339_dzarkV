@@ -21,9 +21,11 @@ CREATE TABLE ROLES (
 CREATE TABLE USERS (
   rol_code INT NOT NULL,
   user_code VARCHAR(100) NOT NULL,
+  user_id VARCHAR(100) NOT NULL,
   user_name VARCHAR(50) NOT NULL,
   user_lastname VARCHAR(50) NOT NULL,
   user_email VARCHAR(100) NOT NULL,
+  user_phone VARCHAR(100) NOT NULL,
   user_pass VARCHAR(150) NOT NULL,
   user_status TINYINT NOT NULL,
   PRIMARY KEY (user_code),
