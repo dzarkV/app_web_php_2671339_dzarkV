@@ -58,10 +58,27 @@
                 require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // $rol = new User;
-                // $rol->setRolName($_POST['rolName']);
-                // $rol->createRol();                
-                // header("Location:?c=Users&a=readRol");
+                if ($_POST['userPass'] == $_POST['userConfirmPass']) {
+                    $user = new User(
+                        $_POST['rolCode'],
+                        $_POST['userCode'],
+                        $_POST['userId'],
+                        $_POST['userName'],
+                        $_POST['userLastName'],
+                        $_POST['userEmail'],
+                        $_POST['userPhone'],
+                        $_POST['userPass'],
+                        $_POST['userStatus']
+                    );                    
+                    $user->createUser();                    
+                    header("Location:?c=Dashboard");
+                } else {
+                    require_once "views/roles/admin/header.view.php";
+                    require_once "views/modules/1_users/create_user.view.php";
+                    echo "La Contraseña y la Confirmación NO son iguales";
+                    require_once "views/roles/admin/footer.view.php";
+                }
+                
             }
         }
 
