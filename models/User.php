@@ -126,9 +126,11 @@
                     $user = new User(                    
                         $userDb['rol_code'],
                         $userDb['user_code'],
+                        $userDb['user_id'],
                         $userDb['user_name'],
                         $userDb['user_lastname'],
                         $userDb['user_email'],
+                        $userDb['user_phone'],
                         $userDb['user_pass'],
                         $userDb['user_status']
                     );
