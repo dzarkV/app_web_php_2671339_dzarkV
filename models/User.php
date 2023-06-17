@@ -2,12 +2,14 @@
     class User{
         // 1ra Parte: Modelo de acuerdo a la POO
         private $dbh;
-        private $rolCode = null;
+        private $rolCode = null;        
         private $rolName;
         private $userCode;
+        private $userId;
         private $userName;
         private $userLastName;
         private $userEmail;
+        private $userPhone;
         private $userPass;        
         private $userStatus;        
         public function __construct(){
@@ -26,12 +28,14 @@
             $this->userEmail = $userEmail;
             $this->userPass = $userPass;
         }        
-        public function __construct7($rolCode,$userCode,$userName,$userLastName,$userEmail,$userPass,$userStatus){
+        public function __construct9($rolCode,$userCode,$userId,$userName,$userLastName,$userEmail,$userPhone,$userPass,$userStatus){
             $this->rolCode = $rolCode;
             $this->userCode = $userCode;
+            $this->userId = $userId;
             $this->userName = $userName;
             $this->userLastName = $userLastName;
             $this->userEmail = $userEmail;
+            $this->userPhone = $userPhone;
             $this->userPass = $userPass;
             $this->userStatus = $userStatus;
         }
@@ -56,6 +60,13 @@
         public function getUserCode(){
             return $this->userCode;
         }
+        # Identificación Usuario
+        public function setUserId($userId){
+            $this->userId = $userId;
+        }
+        public function getUserId(){
+            return $this->userId;
+        }
         # Nombre Usuario
         public function setUserName($userName){
             $this->userName = $userName;
@@ -76,6 +87,13 @@
         }
         public function getUserEmail(){
             return $this->userEmail;
+        }
+        # Teléfono Usuario
+        public function setUserPhone($userPhone){
+            $this->userPhone = $userPhone;
+        }
+        public function getUserPhone(){
+            return $this->userPhone;
         }
         # PassWord Usuario
         public function setUserPass($userPass){
@@ -193,10 +211,38 @@
                 die($e->getMessage());
             }            
         }
-        # CU06 - Crear Usuario
-        # CU07 - Consultar Usuarios
-        # CU08 - Actualizar usuario
-        # CU09 - Eliminar usuario
-        # CU10 - Cerrar Sesión
+        # CU07 - Crear Usuario
+        public function createUser(){
+            try {
+                $sql = 'INSERT INTO USERS VALUES (
+                        :rolCode,
+                        :userCode,
+                        :userId,
+                        :userName,
+                        :userLastName,
+                        :userEmail,
+                        :userPhone,
+                        sha1(:userPass),
+                        :userStatus
+                        )';
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPhone', $this->getUserPhone());
+                $stmt->bindValue('userPass', $this->getUserPass());
+                $stmt->bindValue('userStatus', $this->getUserStatus());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+        # CU08 - Consultar Usuarios
+        # CU09 - Actualizar usuario
+        # CU10 - Eliminar usuario
+        # CU11 - Cerrar Sesión
     }
 ?>

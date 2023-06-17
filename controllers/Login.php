@@ -9,12 +9,12 @@
                 require_once "views/company/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $userObj = new User(
+                $user = new User(
                     $_POST['user'],
                     $_POST['pass']
                 );
-                $userObj = $userObj->login();                
-                if ($userObj) {                    
+                $user = $user->login();                
+                if ($user) {                    
                     header("Location:?c=Dashboard");                
                 } else {
                     require_once "views/company/header.view.php";
