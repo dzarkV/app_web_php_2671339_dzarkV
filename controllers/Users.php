@@ -13,9 +13,9 @@
                 require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $rolObj = new User;
-                $rolObj->setRolName($_POST['rolName']);
-                $rolObj->createRol();                
+                $rol = new User;
+                $rol->setRolName($_POST['rolName']);
+                $rol->createRol();                
                 header("Location:?c=Users&a=readRol");
             }
         }
@@ -50,17 +50,20 @@
             $rol->deleteRol($_GET['rolCode']);
             header('Location:?c=Users&a=readRol');
         }
-        # Función del Controlador para Crear Usuario
-        // public function createUser(){
-        //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                // require_once "views/roles/admin/header.view.php";
-                // echo "Vista para crear usuario";
-                // require_once "views/roles/admin/footer.view.php";
-        //     }
-        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //         echo "Estoy en el POST de crear usuario";
-        //     }
-        // }
+        # Función del Controlador para Crear Rol
+        public function createUser(){
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once "views/roles/admin/header.view.php";
+                require_once "views/modules/1_users/create_user.view.php";
+                require_once "views/roles/admin/footer.view.php";
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // $rol = new User;
+                // $rol->setRolName($_POST['rolName']);
+                // $rol->createRol();                
+                // header("Location:?c=Users&a=readRol");
+            }
+        }
 
     }
 
