@@ -266,8 +266,32 @@
                 die($e->getMessage());
             }
         }
-        # CU09 - Actualizar usuario
-        # CU10 - Eliminar usuario
-        # CU11 - Cerrar Sesión
+        # CU09 - Obtener el código del Rol
+        public function getUserByCode($userCode){
+            try {
+                $sql = "SELECT * FROM USERS WHERE user_code=:userCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+                $userDb = $stmt->fetch();
+                $user = new User(                    
+                    $userDb['rol_code'],
+                    $userDb['user_code'],                        
+                    $userDb['user_id'],                        
+                    $userDb['user_name'],                        
+                    $userDb['user_lastname'],                        
+                    $userDb['user_email'],                        
+                    $userDb['user_phone'],                        
+                    $userDb['user_pass'],                        
+                    $userDb['user_status']                       
+                );
+                return $user;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+        # CU10 - Actualizar usuario
+        # CU11 - Eliminar usuario
+        # CU12 - Cerrar Sesión
     }
 ?>
