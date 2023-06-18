@@ -320,6 +320,16 @@
             }
         }
         # CU11 - Eliminar usuario
+        public function deleteUser($userCode){
+            try {
+                $sql = 'DELETE FROM USERS WHERE user_code = :userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }            
+        }
         # CU12 - Cerrar Sesión
     }
 ?>

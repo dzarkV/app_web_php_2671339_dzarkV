@@ -71,7 +71,7 @@
                         $_POST['userStatus']
                     );                    
                     $user->createUser();                    
-                    header("Location:?c=Dashboard");
+                    header("Location:?c=Users&a=readUser");
                 } else {
                     require_once "views/roles/admin/header.view.php";
                     require_once "views/modules/1_users/create_user.view.php";
@@ -89,8 +89,8 @@
             require_once "views/modules/1_users/read_user.view.php";
             require_once "views/roles/admin/footer.view.php";
         }
-         # Función del Controlador para Actualizar Usuario
-         public function updateUser(){
+        # Función del Controlador para Actualizar Usuario
+        public function updateUser(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $user = new User;
                 $user = $user->getUserByCode($_GET['userCode']);
@@ -113,6 +113,12 @@
                 $user->updateUser();
                 header('Location:?c=Users&a=readUser');
             }
+        }
+        # Función del Controlador para Eliminar User
+        public function deleteUser(){
+            $user = new User;
+            $user->deleteUser($_GET['userCode']);
+            header('Location:?c=Users&a=readUser');
         }
 
     }
