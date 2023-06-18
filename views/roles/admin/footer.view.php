@@ -18,8 +18,8 @@
 	<script src="assets/js/dashboard/jquery.mCustomScrollbar.concat.min.js" ></script>
 
 	<!-- Bootstrap Material Design V4.0 -->
-	<!-- <script src="assets/js/dashboard/bootstrap-material-design.min.js" ></script> -->
-	<!-- <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> -->
+	<script src="assets/js/dashboard/bootstrap-material-design.min.js" ></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 
 	<script src="assets/js/dashboard/main.js" ></script>
 </body>
