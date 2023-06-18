@@ -85,9 +85,8 @@
         public function readUser(){
             $users = new User;
             $users = $users->readUser();
-            require_once "views/roles/admin/header.view.php";
-            print_r($users);
-            // require_once "views/modules/1_users/read_rol.view.php";
+            require_once "views/roles/admin/header.view.php";            
+            require_once "views/modules/1_users/read_user.view.php";
             require_once "views/roles/admin/footer.view.php";
         }
 
