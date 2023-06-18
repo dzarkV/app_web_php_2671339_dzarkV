@@ -99,11 +99,19 @@
                 require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $rol = new User;
-                $rol->setRolCode($_POST['rolCode']);
-                $rol->setRolName($_POST['rolName']);
-                $rol->updateRol();
-                header('Location:?c=Users&a=readRol');
+                $user = new User(
+                    $_POST['rolCode'],
+                    $_POST['userCode'],
+                    $_POST['userId'],
+                    $_POST['userName'],
+                    $_POST['userLastName'],
+                    $_POST['userEmail'],
+                    $_POST['userPhone'],
+                    $_POST['userPass'],
+                    $_POST['userStatus']
+                );
+                $user->updateUser();
+                header('Location:?c=Users&a=readUser');
             }
         }
 

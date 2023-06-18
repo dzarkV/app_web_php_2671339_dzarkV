@@ -291,6 +291,34 @@
             }
         }
         # CU10 - Actualizar usuario
+        public function updateUser(){
+            try {                
+                $sql = 'UPDATE USERS SET
+                            rol_code = :rolCode,
+                            user_code = :userCode,                            
+                            user_id = :userId,                            
+                            user_name = :userName,                            
+                            user_lastname = :userLastName,                            
+                            user_email = :userEmail,                            
+                            user_phone = :userPhone,                            
+                            user_pass = :userPass,                            
+                            user_status = :userStatus                            
+                        WHERE user_code = :userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPhone', $this->getUserPhone());
+                $stmt->bindValue('userPass', $this->getUserPass());
+                $stmt->bindValue('userStatus', $this->getUserStatus());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
         # CU11 - Eliminar usuario
         # CU12 - Cerrar Sesión
     }
