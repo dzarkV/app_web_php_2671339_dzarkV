@@ -17,10 +17,8 @@
                 if ($user) {                    
                     header("Location:?c=Dashboard");                
                 } else {
-                    require_once "views/company/header.view.php";
-                    require_once "views/company/login.view.php";
-                    echo "El Usuario no está registrado";
-                    require_once "views/company/footer.view.php";
+                    echo '<script src="assets/js/landing/scripts_landing.js"></script>';
+                    echo "<script>alerta()</script>";  
                 }                
             }
         }

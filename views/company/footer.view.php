@@ -104,6 +104,7 @@
     <script src="assets/js/landing/slick.min.js"></script>
     <script>
         $('#carousel-related-product').slick({
+            
             infinite: true,
             arrows: false,
             slidesToShow: 4,
@@ -133,6 +134,7 @@
             ]
         });
     </script>
+    <script src="assets/js/landing/scripts_landing.js"></script>
 </body>
 
 </html>

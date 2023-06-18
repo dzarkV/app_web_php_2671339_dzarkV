@@ -1,1 +1,4 @@
-// alert("Estoy funcionando");
+function alerta() {
+    alert("Usuario NO registrado");    
+	window.location.assign("?");
+};
