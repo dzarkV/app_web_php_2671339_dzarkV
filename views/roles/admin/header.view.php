@@ -41,7 +41,7 @@
 			<div class="full-box nav-lateral-content">
 				<figure class="full-box nav-lateral-avatar">
 					<i class="far fa-times-circle show-nav-lateral"></i>
-					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
 						Carlos Alfaro <br><small class="roboto-condensed-light">Web Developer</small>
 					</figcaption>
@@ -53,13 +53,13 @@
 							<a href="home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
 						</li>
 						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Roles <i class="fas fa-chevron-down"></i></a>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-user-lock"></i> &nbsp; Roles <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
 									<a href="?c=Users&a=createRol"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Rol</a>
 								</li>
 								<li>
-									<a href="user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Roles</a>
+									<a href="?c=Users&a=readRol"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Roles</a>
 								</li>
 								<li>
 									<a href="user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Rol</a>
@@ -116,7 +116,7 @@
 				<a href="user-update.html">
 					<i class="fas fa-user-cog"></i>
 				</a>
-				<a href="#" class="btn-exit-system">
+				<a href="?c=Logout">
 					<i class="fas fa-power-off"></i>
 				</a>
 			</nav>
