@@ -243,6 +243,29 @@
             }
         }
         # CU08 - Consultar Usuarios
+        public function readUser(){
+            try {
+                $userList = [];
+                $sql = 'SELECT * FROM USERS';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $user) {
+                    $userList[] = new User(
+                        $user['rol_code'],
+                        $user['user_code'],                        
+                        $user['user_id'],                        
+                        $user['user_name'],                        
+                        $user['user_lastname'],                        
+                        $user['user_email'],                        
+                        $user['user_phone'],                        
+                        $user['user_pass'],                        
+                        $user['user_status']                       
+                    );
+                }
+                return $userList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
         # CU09 - Actualizar usuario
         # CU10 - Eliminar usuario
         # CU11 - Cerrar Sesión

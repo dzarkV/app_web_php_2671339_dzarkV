@@ -50,7 +50,7 @@
             $rol->deleteRol($_GET['rolCode']);
             header('Location:?c=Users&a=readRol');
         }
-        # Función del Controlador para Crear Rol
+        # Función del Controlador para Crear Usuario
         public function createUser(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once "views/roles/admin/header.view.php";
@@ -80,6 +80,15 @@
                 }
                 
             }
+        }
+        # Función del Controlador para Consultar Usuarios
+        public function readUser(){
+            $users = new User;
+            $users = $users->readUser();
+            require_once "views/roles/admin/header.view.php";
+            print_r($users);
+            // require_once "views/modules/1_users/read_rol.view.php";
+            require_once "views/roles/admin/footer.view.php";
         }
 
     }
