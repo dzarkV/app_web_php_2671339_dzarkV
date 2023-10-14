@@ -26,5 +26,10 @@
             require_once "views/company/contact.view.php";
             require_once "views/company/footer.view.php";
         }
+        public function prueba(){
+            require_once "views/company/header.view.php";            
+            require_once "views/company/prueba.view.php";
+            require_once "views/company/footer.view.php";
+        }
     }    
 ?>

@@ -74,6 +74,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#form-login" >Iniciar Sesión</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?c=Landing&a=prueba">Página prueba</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
